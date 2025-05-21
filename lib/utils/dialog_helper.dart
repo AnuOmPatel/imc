@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DialogHelper {
+
+  static bool get isDialogOpen => Get.isDialogOpen ?? false;
   static void showLoading({String title = "Loading.."}) {
     Get.dialog(
         Dialog(
@@ -38,6 +40,8 @@ class DialogHelper {
   }
 
   static void dismissDialog(){
-    Get.back();
+    if (isDialogOpen) {
+      Get.back();
+    }
   }
 }
